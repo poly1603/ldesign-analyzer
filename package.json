@@ -2,16 +2,133 @@
   "name": "@ldesign/analyzer",
   "version": "0.1.0",
   "description": "LDesign 分析工具 - 打包体积分析、依赖关系图、代码复杂度",
-  "keywords": ["ldesign", "analyzer", "bundle", "dependency", "complexity"],
+  "keywords": [
+    "ldesign",
+    "analyzer",
+    "bundle",
+    "dependency",
+    "complexity"
+  ],
   "author": "LDesign Team",
   "license": "MIT",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.cjs"
+    },
+    "./cli": {
+      "types": "./es/cli/index.d.ts",
+      "import": "./es/cli/index.js",
+      "require": "./lib/cli/index.cjs"
+    },
+    "./cli/*": {
+      "types": "./es/cli/*.d.ts",
+      "import": "./es/cli/*.js",
+      "require": "./lib/cli/*.cjs"
+    },
+    "./core": {
+      "types": "./es/core/index.d.ts",
+      "import": "./es/core/index.js",
+      "require": "./lib/core/index.cjs"
+    },
+    "./core/*": {
+      "types": "./es/core/*.d.ts",
+      "import": "./es/core/*.js",
+      "require": "./lib/core/*.cjs"
+    },
+    "./parsers": {
+      "types": "./es/parsers/index.d.ts",
+      "import": "./es/parsers/index.js",
+      "require": "./lib/parsers/index.cjs"
+    },
+    "./parsers/*": {
+      "types": "./es/parsers/*.d.ts",
+      "import": "./es/parsers/*.js",
+      "require": "./lib/parsers/*.cjs"
+    },
+    "./reporters": {
+      "types": "./es/reporters/index.d.ts",
+      "import": "./es/reporters/index.js",
+      "require": "./lib/reporters/index.cjs"
+    },
+    "./reporters/*": {
+      "types": "./es/reporters/*.d.ts",
+      "import": "./es/reporters/*.js",
+      "require": "./lib/reporters/*.cjs"
+    },
+    "./types": {
+      "types": "./es/types/index.d.ts",
+      "import": "./es/types/index.js",
+      "require": "./lib/types/index.cjs"
+    },
+    "./types/*": {
+      "types": "./es/types/*.d.ts",
+      "import": "./es/types/*.js",
+      "require": "./lib/types/*.cjs"
+    },
+    "./utils/*": {
+      "types": "./es/utils/*.d.ts",
+      "import": "./es/utils/*.js",
+      "require": "./lib/utils/*.cjs"
+    },
+    "./visualizers": {
+      "types": "./es/visualizers/index.d.ts",
+      "import": "./es/visualizers/index.js",
+      "require": "./lib/visualizers/index.cjs"
+    },
+    "./visualizers/*": {
+      "types": "./es/visualizers/*.d.ts",
+      "import": "./es/visualizers/*.js",
+      "require": "./lib/visualizers/*.cjs"
+    }
+  },
   "main": "./lib/index.cjs",
   "module": "./es/index.js",
-  "scripts": {"build": "ldesign-builder build -f esm,cjs,dts"},
-  "dependencies": {"@ldesign/kit": "workspace:*"},
-  "devDependencies": {"@ldesign/builder": "workspace:*", "typescript": "^5.7.3"}
+  "types": "./es/index.d.ts",
+  "unpkg": "./dist/index.min.js",
+  "jsdelivr": "./dist/index.min.js",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "package.json",
+    "es",
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "build": "ldesign-builder build -f esm,cjs,dts",
+    "dev": "ldesign-builder build -f esm,cjs,dts --watch"
+  },
+  "dependencies": {
+    "@ldesign/kit": "workspace:*",
+    "acorn": "^8.11.3",
+    "@babel/parser": "^7.23.9",
+    "typescript": "^5.7.3",
+    "dependency-graph": "^1.0.0",
+    "madge": "^7.0.0",
+    "echarts": "^5.4.3",
+    "express": "^4.18.2",
+    "ws": "^8.16.0",
+    "open": "^10.0.3",
+    "commander": "^12.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "cli-table3": "^0.6.3",
+    "boxen": "^7.1.1",
+    "fast-glob": "^3.3.2",
+    "gzip-size": "^7.0.0",
+    "pretty-bytes": "^6.1.1",
+    "source-map": "^0.7.4"
+  },
+  "devDependencies": {
+    "@ldesign/builder": "workspace:*",
+    "@types/node": "^20.11.16",
+    "@types/express": "^4.17.21",
+    "@types/ws": "^8.5.10"
+  },
+  "bin": {
+    "ldesign-analyzer": "./bin/cli.js"
+  }
 }
-
-
-
