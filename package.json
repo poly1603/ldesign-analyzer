@@ -99,7 +99,11 @@
   ],
   "scripts": {
     "build": "ldesign-builder build -f esm,cjs,dts",
-    "dev": "ldesign-builder build -f esm,cjs,dts --watch"
+    "dev": "ldesign-builder build -f esm,cjs,dts --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@ldesign/kit": "workspace:*",
