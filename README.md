@@ -1,5 +1,117 @@
 # @ldesign/analyzer
 
+> 🔍 全面的代码分析工具，让代码质量可视化
+
+## ✨ 特性
+
+- 🔍 **代码质量分析** - 复杂度、重复代码、代码异味检测
+- 📊 **依赖分析** - 依赖关系图、循环依赖检测
+- 🐛 **安全扫描** - 依赖漏洞扫描和安全建议
+- 📈 **趋势分析** - 代码质量趋势图表
+- 📋 **自定义规则** - 可配置的分析规则
+- 🎯 **技术债务** - 技术债务评估和追踪
+- 📊 **可视化报告** - 交互式分析报告
+
+## 📦 安装
+
+```bash
+npm install @ldesign/analyzer --save-dev
+```
+
+## 🚀 快速开始
+
+### 分析代码质量
+
+```bash
+# 分析整个项目
+npx ldesign-analyzer analyze
+
+# 分析指定目录
+npx ldesign-analyzer analyze src/
+```
+
+### 依赖分析
+
+```bash
+# 分析依赖关系
+npx ldesign-analyzer deps
+
+# 检查循环依赖
+npx ldesign-analyzer deps --circular
+```
+
+### 安全扫描
+
+```bash
+# 扫描安全漏洞
+npx ldesign-analyzer security
+```
+
+### 生成报告
+
+```bash
+# 生成完整报告
+npx ldesign-analyzer report
+```
+
+## ⚙️ 配置
+
+创建 `analyzer.config.js`：
+
+```javascript
+module.exports = {
+  // 分析目录
+  include: ['src/**/*.{js,ts,jsx,tsx}'],
+  exclude: ['node_modules', 'dist', '**/*.test.js'],
+  
+  // 复杂度阈值
+  complexity: {
+    max: 10,
+    warn: 7,
+  },
+  
+  // 重复代码检测
+  duplication: {
+    minLines: 5,
+    minTokens: 50,
+  },
+  
+  // 依赖分析
+  dependencies: {
+    checkCircular: true,
+    maxDepth: 10,
+  },
+  
+  // 安全扫描
+  security: {
+    severity: ['critical', 'high', 'medium'],
+  },
+  
+  // 报告配置
+  report: {
+    format: 'html', // 'html', 'json', 'markdown'
+    output: 'reports',
+  },
+};
+```
+
+## 📊 报告示例
+
+分析完成后，工具会生成以下报告：
+
+- **代码质量报告** - 复杂度、可维护性指标
+- **依赖关系图** - 模块依赖可视化
+- **安全报告** - 漏洞列表和修复建议
+- **趋势分析** - 历史数据对比
+
+## 🤝 贡献
+
+欢迎贡献！请查看 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+
+## 📄 许可证
+
+MIT © LDesign Team
+
 <div align="center">
 
 # 📊 @ldesign/analyzer
